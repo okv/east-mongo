@@ -10,9 +10,6 @@
 	"keywords": [
 		"database", "db", "migrate", "mongo", "mongodb"
 	],
-	"scripts": {
-		"test": "mocha test --reporter spec --bail --async-only"
-	},
 	"dependencies": {
 		"mongodb": ">=1.3.0"
 	}
