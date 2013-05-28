@@ -1,0 +1,19 @@
+{
+	"name": "east-mongo",
+	"description": "mongodb adapter for \"east\" (node.js database migration tool)",
+	"version": "0.1.0",
+	"author": "Oleg Korobenko <oleg.korobenko@gmail.com>",
+	"repository": {
+		"type": "git",
+		"url": "git://github.com/okv/east-mongo.git"
+	},
+	"keywords": [
+		"database", "db", "migrate", "mongo", "mongodb"
+	],
+	"scripts": {
+		"test": "mocha test --reporter spec --bail --async-only"
+	},
+	"dependencies": {
+		"mongodb": ">=1.3.0"
+	}
+}
