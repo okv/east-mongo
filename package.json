@@ -7,6 +7,7 @@
 		"type": "git",
 		"url": "git://github.com/okv/east-mongo.git"
 	},
+	"main": "./lib/adapter",
 	"keywords": [
 		"database", "db", "migrate", "mongo", "mongodb"
 	],
