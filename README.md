@@ -4,8 +4,14 @@ mongodb adapter for [east](https://github.com/okv/east) (node.js database migrat
 [mongodb native driver](http://mongodb.github.io/node-mongodb-native/)
 
 All executed migrations names will be stored at `_migrations` collection in the
-current database and `client.db` inside `migrate` and `rollback` functions is
-instance of [mongodb native db](http://mongodb.github.io/node-mongodb-native/api-generated/db.html)
+current database. Object with following properties will be passed to `migrate`
+and `rollback` functions:
+
+* `db` - instance of [mongodb native db](http://mongodb.github.io/node-mongodb-native/api-generated/db.html)
+* `dropIndexIfExists` function(collection, index, callback) - helper function
+which can be used for dropping index in safe way (contrasting to 
+`collection.dropIndex` which throws an error if index doesn't exist).
+
 
 
 ## Installation
@@ -140,7 +146,7 @@ east migrate 1_apples,2_bananas
 ```
 
 Run `east -h` to see all commands, `east <command> -h` to see detail command help,
-also see [east page](https://github.com/okv/east#usage) for command examples.
+see also [east page](https://github.com/okv/east#usage) for command examples.
 
 
 ## Running test
