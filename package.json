@@ -3,6 +3,7 @@
 	"description": "mongodb adapter for \"east\" (node.js database migration tool)",
 	"version": "0.1.2",
 	"author": "Oleg Korobenko <oleg.korobenko@gmail.com>",
+	"license": "MIT",
 	"repository": {
 		"type": "git",
 		"url": "git://github.com/okv/east-mongo.git"

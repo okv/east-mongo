@@ -152,3 +152,9 @@ see also [east page](https://github.com/okv/east#usage) for command examples.
 ## Running test
 
 run [east](https://github.com/okv/east#running-test) tests with this adapter
+
+
+## License
+
+MIT
+
