@@ -142,7 +142,7 @@ east migrate 1_apples
 or
 
 ```sh
-east migrate 1_apples,2_bananas
+east migrate 1_apples 2_bananas
 ```
 
 Run `east -h` to see all commands, `east <command> -h` to see detail command help,
