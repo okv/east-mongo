@@ -17,9 +17,9 @@
     "mongodb"
   ],
   "peerDependencies": {
-    "mongodb": "2.2.34"
+    "mongodb": "2.x.x"
   },
   "devDependencies": {
-    "mongodb": "2.2.34"
+    "mongodb": "2.x.x"
   }
 }
