@@ -1,7 +1,7 @@
 {
   "name": "east-mongo",
   "description": "mongodb adapter for east (node.js database migration tool)",
-  "version": "0.3.4",
+  "version": "0.3.5",
   "author": "Oleg Korobenko <oleg.korobenko@gmail.com>",
   "license": "MIT",
   "repository": {
