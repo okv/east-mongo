@@ -13,6 +13,9 @@ which can be used for dropping index in safe way (contrasting to
 `collection.dropIndex` which throws an error if index doesn't exist).
 
 
+[![Npm version](https://img.shields.io/npm/v/east-mongo.svg)](https://www.npmjs.org/package/east-mongo)
+[![Known Vulnerabilities](https://snyk.io/test/npm/east-mongo/badge.svg)](https://snyk.io/test/npm/east-mongo)
+
 
 ## Installation
 
