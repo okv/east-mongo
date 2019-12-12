@@ -20,7 +20,7 @@
     "mongodb": "2.x.x || 3.x.x"
   },
   "devDependencies": {
-    "mongodb": "2.x.x"
+    "mongodb": "3.4.0"
   },
   "dependencies": {
     "mongodb-uri": "0.9.7"
