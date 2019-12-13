@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git://github.com/okv/east-mongo.git"
   },
-  "main": "./lib/adapter",
+  "main": "lib/index.js",
   "keywords": [
     "database",
     "db",
