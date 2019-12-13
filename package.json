@@ -16,6 +16,9 @@
     "mongo",
     "mongodb"
   ],
+  "scripts": {
+    "test": "tape test/**/*.js | tap-bail | tap-dot"
+  },
   "peerDependencies": {
     "mongodb": "2.x.x || 3.x.x"
   },

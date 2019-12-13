@@ -1,4 +1,3 @@
 .npmignore
 .npmrc
-test
-
+test/
