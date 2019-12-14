@@ -24,7 +24,7 @@
   },
   "devDependencies": {
     "es6-promisify": "6.0.2",
-    "mongodb": "3.4.0",
+    "mongodb": "2.x.x || 3.x.x",
     "tap-dot": "2.0.0",
     "tap_bail": "1.0.1",
     "tape": "4.11.0",
