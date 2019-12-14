@@ -17,12 +17,13 @@
     "mongodb"
   ],
   "scripts": {
-    "test": "tape test/**/*.js | tap-bail | tap-dot"
+    "test": "tape test/**/*.test.js | tap-bail | tap-dot"
   },
   "peerDependencies": {
     "mongodb": "2.x.x || 3.x.x"
   },
   "devDependencies": {
+    "es6-promisify": "6.0.2",
     "mongodb": "3.4.0",
     "tap-bail": "1.0.0",
     "tap-dot": "2.0.0",
