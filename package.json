@@ -17,7 +17,7 @@
     "mongodb"
   ],
   "scripts": {
-    "test": "tape test/**/*.test.js | tap-bail | tap-dot"
+    "test": "tape test/**/*.test.js | tap_bail | tap-dot"
   },
   "peerDependencies": {
     "mongodb": "2.x.x || 3.x.x"
@@ -27,6 +27,7 @@
     "mongodb": "3.4.0",
     "tap-bail": "1.0.0",
     "tap-dot": "2.0.0",
+    "tap_bail": "1.0.1",
     "tape": "4.11.0",
     "tape-catch": "1.0.6"
   },
