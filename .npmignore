@@ -1,3 +1,4 @@
+test/
 .npmignore
 .npmrc
-test/
+.travis.yml
