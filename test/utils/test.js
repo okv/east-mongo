@@ -1,6 +1,5 @@
 'use strict';
 
-const tapePromise = require('tape-promise');
-const test = tapePromise.default(require('tape-catch'));
+const test = require('blue-tape');
 
 module.exports = test;
