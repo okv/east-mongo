@@ -1,11 +1,9 @@
 'use strict';
 
-const test = require('tape-catch');
 const testUtils = require('../utils');
 
+const test = testUtils.test;
 let adapter;
-let connect;
-let disconnect;
 
 test('setup', (assert) => {
 	adapter = testUtils.createAdapter();
@@ -13,18 +11,16 @@ test('setup', (assert) => {
 });
 
 test('adapter connect method', (assert) => {
-	adapter.connect()
+	return adapter.connect()
 		.then((result) => {
 			assert.ok(result.db, 'should return `db`');
 			assert.ok(
 				result.dropIndexIfExists,
 				'should return `dropIndexIfExists`'
 			);
-			assert.end();
-		})
-		.catch(assert.end);
+		});
 });
 
 test('teardown', (assert) => {
-	adapter.disconnect().then(assert.end).catch(assert.end);
+	return adapter.disconnect();
 });
