@@ -15,6 +15,9 @@ module.exports = () => {
 
 	adapter.connect = promisify(adapter.connect.bind(adapter));
 	adapter.disconnect = promisify(adapter.disconnect.bind(adapter));
+	adapter.getExecutedMigrationNames = promisify(
+		adapter.getExecutedMigrationNames.bind(adapter)
+	);
 
 	return adapter;
 };
