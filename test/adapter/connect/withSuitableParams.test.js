@@ -1,6 +1,6 @@
 'use strict';
 
-const testUtils = require('../utils');
+const testUtils = require('../../utils');
 
 const test = testUtils.test;
 let adapter;
@@ -10,7 +10,7 @@ test('setup', (assert) => {
 	assert.end();
 });
 
-test('adapter connect method', (assert) => {
+test('adapter connect method with suitable params', (assert) => {
 	return adapter.connect()
 		.then((result) => {
 			assert.ok(result.db, 'should return `db`');
