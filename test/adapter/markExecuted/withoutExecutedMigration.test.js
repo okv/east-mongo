@@ -11,12 +11,11 @@ test('setup', (assert) => {
 
 	return Promise.resolve()
 		.then(() => adapter.connect())
-		.then(() => testUtils.clearAdapterCollection({adapter}))
-		.then(() => testUtils.markMigrationExecuted({adapter, migrationName}));
+		.then(() => testUtils.clearAdapterCollection({adapter}));
 });
 
 test(
-	'adapter markExecuted method with executed migration',
+	'adapter markExecuted method without executed migration',
 	(assert) => {
 		return Promise.resolve()
 			.then(() => adapter.markExecuted(migrationName))
@@ -25,7 +24,7 @@ test(
 				assert.deepEqual(
 					names,
 					[migrationName],
-					'should do nothing'
+					'should mark migration executed'
 				);
 			});
 	}
