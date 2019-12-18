@@ -24,7 +24,7 @@ test(
 				assert.deepEqual(
 					names,
 					[migrationName],
-					'should mark migration executed'
+					'should add migration to list of executed migrations'
 				);
 			});
 	}

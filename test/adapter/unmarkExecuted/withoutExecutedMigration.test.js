@@ -24,7 +24,7 @@ test(
 				assert.deepEqual(
 					names,
 					[],
-					'should do nothing'
+					'should leave empty list of executed migrations'
 				);
 			});
 	}

@@ -25,7 +25,7 @@ test(
 				assert.deepEqual(
 					names,
 					[migrationName],
-					'should do nothing'
+					'should not modify list of executed migrations'
 				);
 			});
 	}
