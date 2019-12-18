@@ -2,3 +2,4 @@ test/
 .npmignore
 .npmrc
 .travis.yml
+.nycrc
