@@ -1,4 +1,6 @@
 test/
+coverage/
+.nyc_output
 .npmignore
 .npmrc
 .travis.yml
