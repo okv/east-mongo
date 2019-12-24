@@ -19,13 +19,14 @@
   "scripts": {
     "test": "tape \"test/**/*.test.js\" | tap-dot",
     "makeCodeCoverageSummaryReport": "nyc --reporter text-summary npm test",
-    "makeCodeCoverageDetailReport": "nyc --reporter html npm test"
+    "makeCodeCoverageDetailReport": "nyc --reporter=lcov --reporter html npm test"
   },
   "peerDependencies": {
     "mongodb": "2.x.x || 3.x.x"
   },
   "devDependencies": {
     "blue-tape": "1.0.0",
+    "coveralls": "3.0.9",
     "es6-promisify": "6.0.2",
     "mongodb": "2.x.x || 3.x.x",
     "nyc": "14.1.1",
