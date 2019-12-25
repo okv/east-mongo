@@ -24,6 +24,9 @@ module.exports = () => {
 	adapter.getExecutedMigrationNames = promisify(
 		adapter.getExecutedMigrationNames.bind(adapter)
 	);
+	adapter.helpers.dropIndexIfExists = promisify(
+		adapter.helpers.dropIndexIfExists
+	);
 
 	return adapter;
 };
