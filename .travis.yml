@@ -25,7 +25,14 @@ before_script:
   - npm install mongodb@${MONGODB_DRIVER_VERSION}
 
 script:
-    - npm test
+    - >
+      nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
+
+      if [ $nodeVersionMajor -gt 4 ]; then
+        npm test;
+      else
+        npm run testWithoutBail;
+      fi;
 
     - >
       nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
