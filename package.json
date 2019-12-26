@@ -8,7 +8,7 @@
     "type": "git",
     "url": "git://github.com/okv/east-mongo.git"
   },
-  "main": "./lib/adapter",
+  "main": "lib/index.js",
   "keywords": [
     "database",
     "db",
@@ -16,11 +16,26 @@
     "mongo",
     "mongodb"
   ],
+  "scripts": {
+    "test": "tape \"test/**/*.test.js\" | tap_bail | tap-dot",
+    "testWithoutBail": "tape \"test/**/*.test.js\" | tap-dot",
+    "makeCodeCoverageSummaryReport": "nyc --reporter text-summary npm test",
+    "makeCodeCoverageDetailReport": "nyc --reporter=lcov --reporter html npm test"
+  },
   "peerDependencies": {
     "mongodb": "2.x.x || 3.x.x"
   },
   "devDependencies": {
-    "mongodb": "3.4.0"
+    "blue-tape": "1.0.0",
+    "coveralls": "3.0.9",
+    "es6-promisify": "6.0.2",
+    "mongodb": "2.x.x || 3.x.x",
+    "nyc": "14.1.1",
+    "tap-dot": "2.0.0",
+    "tap_bail": "1.0.1",
+    "tape": "4.11.0",
+    "tape-catch": "1.0.6",
+    "tape-promise": "4.0.0"
   },
   "dependencies": {
     "mongodb-uri": "0.9.7"

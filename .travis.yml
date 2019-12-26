@@ -1,0 +1,46 @@
+language: node_js
+
+node_js:
+    - "stable"
+    - "12"
+    - "10"
+    - "8"
+    - "6"
+    - "4"
+
+sudo: false
+
+env:
+  - MONGODB_VERSION=2.4.14 MONGODB_DRIVER_VERSION=2.x.x
+  - MONGODB_VERSION=3.6.16 MONGODB_DRIVER_VERSION=2.x.x
+  - MONGODB_VERSION=4.0.13 MONGODB_DRIVER_VERSION=3.x.x
+
+before_script:
+  - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${MONGODB_VERSION}.tgz -O /tmp/mongodb.tgz
+  - tar -xvf /tmp/mongodb.tgz
+  - mkdir /tmp/data
+  - ${PWD}/mongodb-linux-x86_64-${MONGODB_VERSION}/bin/mongod --dbpath /tmp/data &> /dev/null &
+  - ${PWD}/mongodb-linux-x86_64-${MONGODB_VERSION}/bin/mongod --version
+  - until nc -z localhost 27017; do echo Waiting for MongoDB; sleep 1; done
+  - npm install mongodb@${MONGODB_DRIVER_VERSION}
+
+script:
+    - >
+      nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
+
+      if [ $nodeVersionMajor -gt 4 ]; then
+        npm test;
+      else
+        npm run testWithoutBail;
+      fi;
+
+    - >
+      nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
+
+      if [ $nodeVersionMajor -eq 12 ]; then
+        npm run makeCodeCoverageSummaryReport;
+        npm run makeCodeCoverageDetailReport;
+        coveralls < coverage/lcov.info;
+      else
+        echo "*** Do not make coverage reports for non node.js 12 builds ($nodeVersionMajor)";
+      fi;
