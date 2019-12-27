@@ -19,7 +19,6 @@ module.exports = () => {
 
 	const adapter = new Adapter(defaultParams);
 
-	adapter.disconnect = promisify(adapter.disconnect.bind(adapter));
 	adapter.getExecutedMigrationNames = promisify(
 		adapter.getExecutedMigrationNames.bind(adapter)
 	);
