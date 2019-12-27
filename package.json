@@ -39,5 +39,8 @@
   },
   "dependencies": {
     "mongodb-uri": "0.9.7"
+  },
+  "engines": {
+    "node": ">=4.0.0"
   }
 }
