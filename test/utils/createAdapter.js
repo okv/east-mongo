@@ -19,9 +19,6 @@ module.exports = () => {
 
 	const adapter = new Adapter(defaultParams);
 
-	adapter.getExecutedMigrationNames = promisify(
-		adapter.getExecutedMigrationNames.bind(adapter)
-	);
 	adapter.helpers.dropIndexIfExists = promisify(
 		adapter.helpers.dropIndexIfExists
 	);
