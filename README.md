@@ -7,6 +7,10 @@ All executed migrations names will be stored at `_migrations` collection in the
 current database. Object with following properties will be passed to `migrate`
 and `rollback` functions:
 
+*Please note* that mainstream mongodb adapter version (>= 1.x) requires
+east >= 1.x, for using adapter with older east versions (prior to 1.x) please
+use mongodb adapter version < 1.x.
+
 * `db` - instance of [mongodb native db](http://mongodb.github.io/node-mongodb-native/api-generated/db.html)
 * `dropIndexIfExists` function(collection, index, callback) - helper function
 which can be used for dropping index in safe way (contrasting to 
