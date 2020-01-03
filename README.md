@@ -11,7 +11,7 @@ and `rollback` functions:
 east >= 1.x, for using adapter with older east versions (prior to 1.x) please
 use mongodb adapter version < 1.x.
 
-* `db` - instance of [mongodb native db](http://mongodb.github.io/node-mongodb-native/api-generated/db.html)
+* `db` - instance of [mongodb native db](http://mongodb.github.io/node-mongodb-native/3.4/api/Db.html)
 * `dropIndexIfExists` function(collection, index, callback) - helper function
 which can be used for dropping index in safe way (contrasting to 
 `collection.dropIndex` which throws an error if index doesn't exist).
@@ -25,8 +25,11 @@ which can be used for dropping index in safe way (contrasting to
 
 ## Installation
 
+mongodb adapter requires `mongodb` package as peer dependency (versions 2.x and
+3.x are supported), so you should install it manually along side with east:
+
 ```sh
-npm install east east-mongo
+npm install east east-mongo mongodb
 ```
 
 alternatively you could install it globally
