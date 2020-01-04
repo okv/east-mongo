@@ -12,9 +12,11 @@ east >= 1.x, for using adapter with older east versions (prior to 1.x) please
 use mongodb adapter version < 1.x.
 
 * `db` - instance of [mongodb native db](http://mongodb.github.io/node-mongodb-native/3.4/api/Db.html)
-* `dropIndexIfExists` function(collection, index, callback) - helper function
+* `dropIndexIfExists` function(collection, index, [callback]) - helper function
 which can be used for dropping index in safe way (contrasting to 
-`collection.dropIndex` which throws an error if index doesn't exist).
+`collection.dropIndex` which throws an error if index doesn't exist). This
+function returns promise and can be used that way instead of providing
+callback.
 
 
 [![Npm version](https://img.shields.io/npm/v/east-mongo.svg)](https://www.npmjs.org/package/east-mongo)
