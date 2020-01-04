@@ -19,9 +19,5 @@ module.exports = () => {
 
 	const adapter = new Adapter(defaultParams);
 
-	adapter.helpers.dropIndexIfExists = promisify(
-		adapter.helpers.dropIndexIfExists
-	);
-
 	return adapter;
 };
