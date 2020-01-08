@@ -20,7 +20,8 @@
     "test": "tape \"test/**/*.test.js\" | tap_bail | tap-dot",
     "testWithoutBail": "tape \"test/**/*.test.js\" | tap-dot",
     "makeCodeCoverageSummaryReport": "nyc --reporter text-summary npm test",
-    "makeCodeCoverageDetailReport": "nyc --reporter=lcov --reporter html npm test"
+    "makeCodeCoverageDetailReport": "nyc --reporter=lcov --reporter html npm test",
+    "lint": "eslint ./"
   },
   "peerDependencies": {
     "mongodb": "2.x.x || 3.x.x"
