@@ -10,6 +10,6 @@ test('setup', (assert) => {
 	assert.end();
 });
 
-test('adapter disconnect method with connected adapter', (assert) => {
+test('adapter disconnect method with connected adapter', () => {
 	return adapter.disconnect();
 });

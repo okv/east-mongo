@@ -1,12 +1,11 @@
 'use strict';
 
 const testUtils = require('../../utils');
-const helpers = require('../../../lib/helpers');
 
 const test = testUtils.test;
 let adapter;
 
-test('setup', (assert) => {
+test('setup', () => {
 	adapter = testUtils.createAdapter();
 
 	return Promise.resolve()
@@ -41,7 +40,7 @@ test(
 	}
 );
 
-test('teardown', (assert) => {
+test('teardown', () => {
 	return Promise.resolve()
 		.then(() => adapter.collection.dropIndexes())
 		.then(() => adapter.disconnect());
