@@ -29,7 +29,6 @@
   "devDependencies": {
     "blue-tape": "1.0.0",
     "coveralls": "3.0.9",
-    "es6-promisify": "6.0.2",
     "eslint": "4.19.1",
     "eslint-config-airbnb-base": "12.1.0",
     "eslint-plugin-import": "2.18.2",

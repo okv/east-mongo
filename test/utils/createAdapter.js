@@ -1,6 +1,5 @@
 'use strict';
 
-const promisify = require('es6-promisify').promisify;
 const mongodbPackageJson = require('mongodb/package.json');
 const Adapter = require('../../lib/adapter');
 
