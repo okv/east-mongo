@@ -5,3 +5,5 @@ coverage/
 .npmrc
 .travis.yml
 .nycrc
+.eslintignore
+.eslintrc.json
