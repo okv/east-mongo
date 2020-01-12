@@ -25,6 +25,8 @@ before_script:
   - npm install mongodb@${MONGODB_DRIVER_VERSION}
 
 script:
+    - npm run lint
+
     - >
       nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
 
