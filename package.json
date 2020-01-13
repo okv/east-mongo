@@ -40,9 +40,7 @@
     "tape-catch": "1.0.6",
     "tape-promise": "4.0.0"
   },
-  "dependencies": {
-    "mongodb-uri": "0.9.7"
-  },
+  "dependencies": {},
   "engines": {
     "node": ">=4.0.0"
   }
