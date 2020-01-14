@@ -3,7 +3,7 @@
 const mongodbPackageJson = require('mongodb/package.json');
 const Adapter = require('../../lib/adapter');
 
-const mongodbMajor = mongodbPackageJson.version.split('.')[0];
+const mongodbMajor = Number(mongodbPackageJson.version.split('.')[0]);
 
 module.exports = () => {
 	const defaultParams = {
@@ -12,7 +12,7 @@ module.exports = () => {
 	};
 
 	// enable options only when options are supported by driver
-	if (mongodbMajor === '3') {
+	if (mongodbMajor === 3) {
 		defaultParams.options.useUnifiedTopology = true;
 	}
 
