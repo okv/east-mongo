@@ -39,6 +39,11 @@ of another template `require.resolve` could be used, e.g. at `.eastrc`:
 [![Coverage Status](https://coveralls.io/repos/github/okv/east-mongo/badge.svg?branch=master)](https://coveralls.io/github/okv/east-mongo?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/npm/east-mongo/badge.svg)](https://snyk.io/test/npm/east-mongo)
 
+
+## Node.js compatibility
+
+east mongo requires node.js >= 4 to work.
+
 ## Installation
 
 mongodb adapter requires `mongodb` package as peer dependency (versions 2.x and
