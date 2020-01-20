@@ -18,12 +18,26 @@ which can be used for dropping index in safe way (contrasting to
 function returns promise and can be used that way instead of providing
 callback.
 
+east mongo package also provides following migration templates:
+
+* lib/migrationTemplates/promises.js - default migration template, uses
+built-in `Promise` in `migrate`, `rollback` functions.
+* lib/migrationTemplates/async.js - migration template that uses async
+functions to describe `migrate`, `rollback` functions.
+
+Default migration template will be used if `template` is not set. To get path
+of another template `require.resolve` could be used, e.g. at `.eastrc`:
+
+```js
+	module.exports = {
+		template: require.resolve('east-mongo/lib/migrationTemplates/async.js')
+	}
+```
 
 [![Npm version](https://img.shields.io/npm/v/east-mongo.svg)](https://www.npmjs.org/package/east-mongo)
 [![Build Status](https://travis-ci.org/okv/east-mongo.svg?branch=master)](https://travis-ci.org/okv/east-mongo)
 [![Coverage Status](https://coveralls.io/repos/github/okv/east-mongo/badge.svg?branch=master)](https://coveralls.io/github/okv/east-mongo?branch=master)
 [![Known Vulnerabilities](https://snyk.io/test/npm/east-mongo/badge.svg)](https://snyk.io/test/npm/east-mongo)
-
 
 ## Installation
 
