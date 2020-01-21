@@ -7,7 +7,6 @@
 		"testUtils/**",
 		"tap-snapshots/**",
 		"coverage/**",
-		"migrations/**",
-		"lib/migrationTemplates/**"
+		"migrations/**"
 	]
 }
