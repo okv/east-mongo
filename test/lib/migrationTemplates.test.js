@@ -12,9 +12,16 @@ test('migrationTemplates', (assert) => {
 		__dirname,
 		'../../lib/migrationTemplates'
 	);
-	const requireMigrationTemplate = (filename) => {
-		// eslint-disable-next-line import/no-dynamic-require
-		require(pathUtils.join(migrationTemplatesPath, filename));
+	const tryMigrationTemplate = (filename) => {
+		return Promise.resolve()
+			// eslint-disable-next-line import/no-dynamic-require
+			.then(() => require(pathUtils.join(migrationTemplatesPath, filename)))
+			.then((migration) => {
+				return Promise.all([
+					migration.migrate({}),
+					migration.rollback({})
+				]);
+			});
 	};
 	const readdir = promisify(fs.readdir);
 	const nodeMajor = Number(process.versions.node.split('.')[0]);
@@ -38,16 +45,23 @@ test('migrationTemplates', (assert) => {
 				'should contain only 2 templates'
 			);
 
-			assert.doesNotThrow(
-				() => requireMigrationTemplate('promises.js'),
-				'promises template should be requireble'
-			);
 			if (nodeMajor >= 8) {
-				assert.doesNotThrow(
-					() => requireMigrationTemplate('async.js'),
-					'promises template should be requireble'
-				);
+				return Promise.all([
+					tryMigrationTemplate('promises.js'),
+					tryMigrationTemplate('async.js')
+				]);
 			} else {
+				return Promise.all([
+					tryMigrationTemplate('promises.js')
+				]);
+			}
+		})
+		.then(() => {
+			if (nodeMajor >= 8) {
+				assert.pass('promises template should be requireble');
+				assert.pass('async template should be requireble');
+			} else {
+				assert.pass('promises template should be requireble');
 				assert.skip('do not require async template on nodejs < 8');
 			}
 		});
