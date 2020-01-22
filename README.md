@@ -20,10 +20,12 @@ callback.
 
 east mongo package also provides following migration templates:
 
-* lib/migrationTemplates/promises.js - default migration template, uses
-built-in `Promise` in `migrate`, `rollback` functions.
-* lib/migrationTemplates/async.js - migration template that uses async
-functions to describe `migrate`, `rollback` functions.
+* [lib/migrationTemplates/promises.js](lib/migrationTemplates/promises.js) -
+default migration template, uses built-in `Promise` in `migrate`,
+`rollback` functions.
+* [lib/migrationTemplates/async.js](lib/migrationTemplates/async.js) -
+migration template that uses async functions to describe `migrate`,
+`rollback` functions.
 
 Default migration template will be used if `template` is not set. To get path
 of another template `require.resolve` could be used, e.g. at `.eastrc`:
