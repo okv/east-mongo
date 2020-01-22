@@ -7,14 +7,14 @@ const packageJson = require('../../package.json');
 
 const test = testUtils.test;
 
-test('module', (t) => {
-	t.equal(libModule, Adapter, 'should export adapter class');
+test('module', (assert) => {
+	assert.equal(libModule, Adapter, 'should export adapter class');
 
-	t.equal(
+	assert.equal(
 		packageJson.main,
 		'lib/index.js',
 		'should be set as main in package.json'
 	);
 
-	t.end();
+	assert.end();
 });

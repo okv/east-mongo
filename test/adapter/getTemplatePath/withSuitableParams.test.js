@@ -22,7 +22,7 @@ test(
 
 		assert.equal(
 			templatePath,
-			'../../../lib/migrationTemplate.js',
+			'../../../lib/migrationTemplates/promises.js',
 			'should return path to migration template'
 		);
 
