@@ -8,26 +8,37 @@ const promisify = require('es6-promisify').promisify;
 const test = testUtils.test;
 
 test('migrationTemplates', (assert) => {
-	const migrationTemplatesPath = pathUtils.resolve(
+	const templatesPath = pathUtils.resolve(
 		__dirname,
 		'../../lib/migrationTemplates'
 	);
 	const tryMigrationTemplate = (filename) => {
-		return Promise.resolve()
-			// eslint-disable-next-line import/no-dynamic-require
-			.then(() => require(pathUtils.join(migrationTemplatesPath, filename)))
-			.then((migration) => {
-				return Promise.all([
-					migration.migrate({}),
-					migration.rollback({})
-				]);
-			});
+		const templatePath = pathUtils.join(templatesPath, filename);
+		let migration;
+		assert.doesNotThrow(
+			() => {
+				// eslint-disable-next-line import/no-dynamic-require
+				migration = require(templatePath);
+			},
+			`${filename} template should be requireble`
+		);
+
+		assert.equal(
+			Array.isArray(migration.tags),
+			true,
+			`${filename} template tags should be an array`
+		);
+
+		return Promise.all([
+			migration.migrate({}),
+			migration.rollback({})
+		]);
 	};
 	const readdir = promisify(fs.readdir);
 	const nodeMajor = Number(process.versions.node.split('.')[0]);
 
 	return Promise.resolve()
-		.then(() => readdir(migrationTemplatesPath))
+		.then(() => readdir(templatesPath))
 		.then((filenames) => {
 			assert.equal(
 				filenames.indexOf('promises.js') !== -1,
@@ -54,15 +65,6 @@ test('migrationTemplates', (assert) => {
 				return Promise.all([
 					tryMigrationTemplate('promises.js')
 				]);
-			}
-		})
-		.then(() => {
-			if (nodeMajor >= 8) {
-				assert.pass('promises template should be requireble');
-				assert.pass('async template should be requireble');
-			} else {
-				assert.pass('promises template should be requireble');
-				assert.skip('do not require async template on nodejs < 8');
 			}
 		});
 });
