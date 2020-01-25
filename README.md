@@ -80,17 +80,22 @@ where `url` is url of database which you want to migrate (in
 [mongodb native url connection format](http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#the-url-connection-format)) and `options` is optional settings
 (see [connect method specification](http://mongodb.github.io/node-mongodb-native/2.0/api/MongoClient.html#connect)).
 
-Migration files created with `template` that comes with adapter will look like:
+Migration files created with default `template` that comes with adapter will
+look like:
 
 ```js
-exports.migrate = function(client, done) {
-	var db = client.db;
-	done();
+exports.tags = [];
+
+exports.migrate = function(params) {
+	const db = params.db;
+
+	return Promise.resolve();
 };
 
-exports.rollback = function(client, done) {
-	var db = client.db;
-	done();
+exports.rollback = function(params) {
+	const db = params.db;
+
+	return Promise.resolve();
 };
 ```
 
