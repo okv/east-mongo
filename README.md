@@ -52,7 +52,7 @@ mongodb adapter requires `mongodb` package as peer dependency (versions 2.x and
 3.x are supported), so you should install it manually along side with east:
 
 ```sh
-npm install east east-mongo mongodb
+npm install east east-mongo mongodb@3
 ```
 
 alternatively you could install it globally
