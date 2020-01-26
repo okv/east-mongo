@@ -3,13 +3,13 @@
 mongodb adapter for [east](https://github.com/okv/east) (node.js database migration tool) which uses 
 [mongodb native driver](http://mongodb.github.io/node-mongodb-native/)
 
-All executed migrations names will be stored at `_migrations` collection in the
-current database. Object with following properties will be passed to `migrate`
-and `rollback` functions:
-
 *Please note* that mainstream mongodb adapter version (>= 1.x) requires
 east >= 1.x, for using adapter with older east versions (prior to 1.x) please
 use mongodb adapter version < 1.x.
+
+All executed migrations names will be stored at `_migrations` collection in the
+current database. Object with following properties will be passed to `migrate`
+and `rollback` functions:
 
 * `db` - instance of [mongodb native db](http://mongodb.github.io/node-mongodb-native/3.4/api/Db.html)
 * `dropIndexIfExists` function(collection, index, [callback]) - helper function
