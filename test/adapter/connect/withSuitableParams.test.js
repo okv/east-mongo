@@ -21,6 +21,6 @@ test('adapter connect method with suitable params', (assert) => {
 		});
 });
 
-test('teardown', (assert) => {
+test('teardown', () => {
 	return adapter.disconnect();
 });

@@ -28,6 +28,15 @@ script:
     - >
       nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
 
+      if [ $nodeVersionMajor -ge 10 ]; then
+        npm run lint
+      else
+        echo "*** Do not lint for node.js < 10 builds ($nodeVersionMajor)";
+      fi;
+
+    - >
+      nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
+
       if [ $nodeVersionMajor -gt 4 ]; then
         npm test;
       else

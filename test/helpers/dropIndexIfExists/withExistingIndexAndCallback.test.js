@@ -15,14 +15,20 @@ test('setup', () => {
 });
 
 test(
-	'helpers dropIndexIfExists with existing index',
+	'helpers dropIndexIfExists with existing index and callback',
 	(assert) => {
 		return Promise.resolve()
 			.then(() => {
-				return adapter.helpers.dropIndexIfExists(
-					adapter.collection,
-					{first: 1, second: -1}
-				);
+				return new Promise((resolve, reject) => {
+					adapter.helpers.dropIndexIfExists(
+						adapter.collection,
+						{first: 1, second: -1},
+						(err) => {
+							if (err) return reject(err);
+							resolve();
+						}
+					);
+				});
 			})
 			.then(() => adapter.collection.indexes())
 			.then((indexes) => {

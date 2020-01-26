@@ -6,7 +6,7 @@ const test = testUtils.test;
 let adapter;
 const migrationName = '1_someMigration';
 
-test('setup', (assert) => {
+test('setup', () => {
 	adapter = testUtils.createAdapter();
 
 	return Promise.resolve()
@@ -29,7 +29,7 @@ test(
 	}
 );
 
-test('teardown', (assert) => {
+test('teardown', () => {
 	return Promise.resolve()
 		.then(() => testUtils.clearAdapterCollection({adapter}))
 		.then(() => adapter.disconnect());

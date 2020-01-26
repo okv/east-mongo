@@ -5,11 +5,11 @@ const testUtils = require('../../utils');
 const test = testUtils.test;
 let adapter;
 
-test('setup', (assert) => {
+test('setup', () => {
 	adapter = testUtils.createAdapter();
 	return adapter.connect();
 });
 
-test('adapter disconnect method with connected adapter', (assert) => {
+test('adapter disconnect method with connected adapter', () => {
 	return adapter.disconnect();
 });

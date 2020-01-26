@@ -20,7 +20,8 @@
     "test": "tape \"test/**/*.test.js\" | tap_bail | tap-dot",
     "testWithoutBail": "tape \"test/**/*.test.js\" | tap-dot",
     "makeCodeCoverageSummaryReport": "nyc --reporter text-summary npm test",
-    "makeCodeCoverageDetailReport": "nyc --reporter=lcov --reporter html npm test"
+    "makeCodeCoverageDetailReport": "nyc --reporter=lcov --reporter html npm test",
+    "lint": "eslint ./"
   },
   "peerDependencies": {
     "mongodb": "2.x.x || 3.x.x"
@@ -29,6 +30,9 @@
     "blue-tape": "1.0.0",
     "coveralls": "3.0.9",
     "es6-promisify": "6.0.2",
+    "eslint": "4.19.1",
+    "eslint-config-airbnb-base": "12.1.0",
+    "eslint-plugin-import": "2.18.2",
     "mongodb": "2.x.x || 3.x.x",
     "nyc": "14.1.1",
     "tap-dot": "2.0.0",
@@ -37,7 +41,8 @@
     "tape-catch": "1.0.6",
     "tape-promise": "4.0.0"
   },
-  "dependencies": {
-    "mongodb-uri": "0.9.7"
+  "dependencies": {},
+  "engines": {
+    "node": ">=4.0.0"
   }
 }

@@ -5,7 +5,7 @@ const testUtils = require('../../utils');
 const test = testUtils.test;
 let adapter;
 
-test('setup', (assert) => {
+test('setup', () => {
 	adapter = testUtils.createAdapter();
 	return adapter.connect();
 });
@@ -20,6 +20,6 @@ test(
 	}
 );
 
-test('teardown', (assert) => {
+test('teardown', () => {
 	return adapter.disconnect();
 });
