@@ -78,7 +78,7 @@ Sample `.eastrc` content:
 
 where `url` is url of database which you want to migrate (in 
 [mongodb native url connection format](http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#the-url-connection-format)) and `options` is optional settings
-(see [connect method specification](http://mongodb.github.io/node-mongodb-native/2.0/api/MongoClient.html#connect)).
+(see [connect method specification](http://mongodb.github.io/node-mongodb-native/3.4/api/MongoClient.html#.connect)).
 
 Migration files created with default `template` that comes with adapter will
 look like:
