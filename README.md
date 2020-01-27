@@ -11,7 +11,7 @@ All executed migrations names will be stored at `_migrations` collection in the
 current database. Object with following properties will be passed to `migrate`
 and `rollback` functions:
 
-* `db` - instance of [mongodb native db](http://mongodb.github.io/node-mongodb-native/3.4/api/Db.html)
+* `db` - instance of [mongodb native db](http://mongodb.github.io/node-mongodb-native/3.5/api/Db.html)
 * `dropIndexIfExists` function(collection, index, [callback]) - helper function
 which can be used for dropping index in safe way (contrasting to 
 `collection.dropIndex` which throws an error if index doesn't exist). This
@@ -78,7 +78,7 @@ Sample `.eastrc` content:
 
 where `url` is url of database which you want to migrate (in 
 [mongodb native url connection format](http://mongodb.github.io/node-mongodb-native/driver-articles/mongoclient.html#the-url-connection-format)) and `options` is optional settings
-(see [connect method specification](http://mongodb.github.io/node-mongodb-native/3.4/api/MongoClient.html#.connect)).
+(see [connect method specification](http://mongodb.github.io/node-mongodb-native/3.5/api/MongoClient.html#.connect)).
 
 Migration files created with default `template` that comes with adapter will
 look like:
