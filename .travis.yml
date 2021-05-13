@@ -2,6 +2,7 @@ language: node_js
 
 node_js:
     - "stable"
+    - "14"
     - "12"
     - "10"
     - "8"
@@ -12,8 +13,8 @@ sudo: false
 
 env:
   - MONGODB_VERSION=2.4.14 MONGODB_DRIVER_VERSION=2.x.x
-  - MONGODB_VERSION=3.6.16 MONGODB_DRIVER_VERSION=2.x.x
-  - MONGODB_VERSION=4.0.13 MONGODB_DRIVER_VERSION=3.x.x
+  - MONGODB_VERSION=3.6.23 MONGODB_DRIVER_VERSION=2.x.x
+  - MONGODB_VERSION=4.0.24 MONGODB_DRIVER_VERSION=3.x.x
 
 before_script:
   - wget http://fastdl.mongodb.org/linux/mongodb-linux-x86_64-${MONGODB_VERSION}.tgz -O /tmp/mongodb.tgz
@@ -26,7 +27,7 @@ before_script:
 
 script:
     - >
-      nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
+      nodeVersionMajor=`node -e "console.log(process.versions.node.split('.')[0])"`;
 
       if [ $nodeVersionMajor -ge 10 ]; then
         npm run lint
@@ -35,7 +36,7 @@ script:
       fi;
 
     - >
-      nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
+      nodeVersionMajor=`node -e "console.log(process.versions.node.split('.')[0])"`;
 
       if [ $nodeVersionMajor -gt 4 ]; then
         npm test;
@@ -44,12 +45,12 @@ script:
       fi;
 
     - >
-      nodeVersionMajor=`node --version | grep -Eo 'v[0-9]+' | sed 's/v//'`;
+      nodeVersionMajor=`node -e "console.log(process.versions.node.split('.')[0])"`;
 
-      if [ $nodeVersionMajor -eq 12 ]; then
+      if [ $nodeVersionMajor -eq 14 ]; then
         npm run makeCodeCoverageSummaryReport;
         npm run makeCodeCoverageDetailReport;
         coveralls < coverage/lcov.info;
       else
-        echo "*** Do not make coverage reports for non node.js 12 builds ($nodeVersionMajor)";
+        echo "*** Do not make coverage reports for non node.js 14 builds ($nodeVersionMajor)";
       fi;
