@@ -1,0 +1,32 @@
+name: Node.js Current LTS macOS and Windows CI
+
+on:
+  push:
+    branches: [ master ]
+  pull_request:
+    branches: [ master ]
+jobs:
+  build:
+    runs-on: ubuntu-20.04
+
+    strategy:
+      matrix:
+        os: [macos-latest, windows-latest]
+        node-version: [14.x]
+        mongodb-version: ['5']
+
+    steps:
+    - uses: actions/checkout@v2
+
+    - name: Node ${{ matrix.node-version }} on ${{ matrix.os }}
+      uses: actions/setup-node@v1
+      with:
+        node-version: ${{ matrix.node-version }}
+
+    - name: Start MongoDB
+      uses: supercharge/mongodb-github-action@1.6.0
+      with:
+        mongodb-version: ${{ matrix.mongodb-version }}
+
+    - run: npm ci
+    - run: npm test
